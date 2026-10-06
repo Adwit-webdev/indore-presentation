@@ -1,0 +1,670 @@
+/* ═══════════════════════════════════════════════════
+   INDORE URBAN ANALYSIS — CUSTOM THEME
+   ═══════════════════════════════════════════════════ */
+
+:root {
+  --primary: #1F3864;
+  --primary-mid: #2E5496;
+  --primary-light: #D9E2F3;
+  --accent: #F5A623;
+  --accent-dark: #C77E06;
+  --teal: #00A9A5;
+  --green: #27AE60;
+  --red: #E74C3C;
+  --orange: #FF6B35;
+  --purple: #8E44AD;
+  --bg-dark: #0a0e27;
+  --text: #E8ECF5;
+  --muted: #8892B0;
+}
+
+* { font-family: 'Inter', sans-serif; }
+
+body {
+  background: var(--bg-dark);
+  color: var(--text);
+}
+
+.reveal {
+  font-family: 'Inter', sans-serif;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.reveal h1 { font-size: 3.6em; }
+.reveal h2 { font-size: 2.1em; }
+.reveal h3 { font-size: 1.4em; }
+
+.reveal p, .reveal li { font-size: 1em; line-height: 1.5; }
+
+/* ── Loading screen ─────────────────────────── */
+#loader {
+  position: fixed; inset: 0;
+  background: var(--bg-dark);
+  z-index: 9999;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+#loader.hide { opacity: 0; visibility: hidden; }
+
+.loader-ring {
+  width: 80px; height: 80px;
+  border: 3px solid rgba(245,166,35,0.2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loader-text {
+  margin-top: 24px;
+  font-size: 14px;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ── Particles ─────────────────────────────── */
+#particles {
+  position: fixed; inset: 0;
+  z-index: 0; pointer-events: none;
+  opacity: 0.5;
+}
+
+.reveal { z-index: 1; }
+
+/* ── Globe intro ───────────────────────────── */
+#globe-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#globe-container canvas {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.globe-caption {
+  position: absolute;
+  bottom: 60px; left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+}
+.globe-caption h2 {
+  font-size: 1.6em !important;
+  color: var(--accent) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+.globe-caption p {
+  font-size: 0.9em;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.globe-caption .globe-author {
+  margin-top: 20px;
+  font-size: 0.75em;
+  letter-spacing: 0.3em;
+  color: #F5A623;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* ── Title slide ───────────────────────────── */
+.title-slide .title-content {
+  text-align: center;
+  padding: 0 40px;
+}
+.title-kicker {
+  font-size: 0.9em !important;
+  letter-spacing: 0.5em;
+  color: var(--primary-light) !important;
+  font-weight: 300 !important;
+  margin-bottom: 0 !important;
+}
+.title-main {
+  font-size: 7em !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.08em !important;
+  margin: 0.1em 0 !important;
+  background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.title-divider {
+  width: 80px; height: 4px;
+  background: var(--accent);
+  margin: 20px auto 30px;
+  border-radius: 2px;
+}
+.title-sub {
+  font-size: 1.3em !important;
+  color: var(--accent) !important;
+  font-style: italic;
+  margin: 0.3em 0 !important;
+}
+.title-desc {
+  font-size: 1em !important;
+  color: var(--text) !important;
+  margin: 0.5em 0 !important;
+}
+.title-meta {
+  display: flex; gap: 20px; justify-content: center;
+  margin: 30px 0 20px;
+  flex-wrap: wrap;
+}
+.title-meta span {
+  font-size: 0.75em;
+  color: var(--primary-light);
+  padding: 6px 16px;
+  border: 1px solid rgba(217,226,243,0.3);
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+}
+.title-date {
+  font-size: 0.85em !important;
+  color: var(--accent) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em;
+  margin-top: 30px !important;
+}
+
+/* ── Section titles ───────────────────────── */
+.section-title {
+  color: #fff !important;
+  border-left: 5px solid var(--accent);
+  padding-left: 20px;
+  margin-bottom: 24px !important;
+  line-height: 1.1;
+}
+
+/* ── Agenda ───────────────────────────────── */
+.agenda {
+  display: flex; flex-direction: column;
+  gap: 14px; padding: 0 40px;
+}
+.agenda-item {
+  display: flex; align-items: center; gap: 24px;
+  padding: 14px 20px;
+  background: rgba(255,255,255,0.03);
+  border-left: 3px solid var(--primary-mid);
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+.agenda-item:hover {
+  background: rgba(245,166,35,0.08);
+  border-left-color: var(--accent);
+  transform: translateX(8px);
+}
+.agenda-item .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.4em; font-weight: 700;
+  color: var(--accent);
+  min-width: 50px;
+}
+.agenda-item h4 {
+  font-size: 1em !important;
+  margin: 0 0 2px 0 !important;
+  color: #fff !important;
+}
+.agenda-item p {
+  font-size: 0.75em;
+  color: var(--muted);
+  margin: 0 !important;
+}
+
+/* ── 3D map ────────────────────────────────── */
+#map-3d {
+  width: 100%; height: 480px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  border: 1px solid rgba(245,166,35,0.2);
+}
+.map-legend {
+  display: flex; gap: 12px;
+  margin-top: 16px; justify-content: center;
+}
+.pill {
+  font-size: 0.65em;
+  padding: 6px 14px;
+  background: rgba(245,166,35,0.1);
+  border: 1px solid rgba(245,166,35,0.3);
+  border-radius: 999px;
+  color: var(--accent);
+}
+.map-stats {
+  display: flex; gap: 20px; justify-content: center;
+  margin-top: 20px;
+}
+.ms {
+  text-align: center;
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  min-width: 120px;
+}
+.ms b { font-size: 1.4em; color: var(--accent); display: block; }
+.ms span { font-size: 0.7em; color: var(--muted); }
+
+/* ── Charts ────────────────────────────────── */
+.chart-container {
+  width: 100%;
+  height: 620px;      /* now uses more of the taller canvas */
+  max-height: 65vh;
+}
+.chart-note {
+  text-align: center;
+  color: var(--muted) !important;
+  font-size: 0.7em !important;
+  margin-top: 12px !important;
+  font-style: italic;
+}
+
+/* ── Animated stats ───────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 8px 20px;
+  max-height: 620px;         /* keeps grid inside the 1080 canvas */
+}
+.stat-card {
+  background: linear-gradient(145deg, rgba(46,84,150,0.3), rgba(31,56,100,0.1));
+  border: 1px solid rgba(245,166,35,0.2);
+  border-radius: 14px;
+  padding: 20px 18px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px;         /* consistent card height */
+}
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(245,166,35,0.15), transparent);
+  transition: left 0.6s;
+}
+.stat-card:hover::before { left: 100%; }
+.stat-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 15px 30px rgba(245,166,35,0.15);
+}
+.stat-number {
+  font-size: 1.9em;          /* was 2.6em — now fits */
+  font-weight: 900;
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.stat-label {
+  font-size: 0.7em;          /* was 0.8em */
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 10px;
+  line-height: 1.3;
+}
+
+/* ── Timeline ──────────────────────────────── */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 40px;
+  position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 100px; top: 20px; bottom: 20px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent), var(--teal));
+}
+.tl-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  transform: translateX(-30px);
+}
+.tl-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.5s ease;
+}
+.tl-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.1em;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 100px;
+  text-align: right;
+  position: relative;
+  z-index: 2;
+}
+.tl-body {
+  background: rgba(255,255,255,0.04);
+  border-left: 3px solid var(--teal);
+  padding: 12px 20px;
+  border-radius: 8px;
+  flex: 1;
+}
+.tl-body h4 { font-size: 0.95em !important; margin: 0 0 4px 0 !important; color: #fff !important; }
+.tl-body p { font-size: 0.75em !important; color: var(--muted) !important; margin: 0 !important; }
+
+/* ── Two columns ───────────────────────────── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 0 40px;
+}
+.col {
+  padding: 24px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.03);
+}
+.col h3 { font-size: 1.1em !important; margin-top: 0 !important; }
+.col ul { list-style: none; padding: 0; margin: 0; }
+.col li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.85em;
+}
+.col li:last-child { border-bottom: none; }
+.strengths { border-left: 4px solid var(--green); }
+.strengths h3 { color: var(--green) !important; }
+.concerns { border-left: 4px solid var(--red); }
+.concerns h3 { color: var(--red) !important; }
+
+/* ── Conclusion ────────────────────────────── */
+.big-quote {
+  font-size: 1.3em !important;
+  font-weight: 300;
+  line-height: 1.5;
+  padding: 30px;
+  border-left: 4px solid var(--accent);
+  background: rgba(245,166,35,0.05);
+  border-radius: 0 12px 12px 0;
+  margin: 0 40px 40px !important;
+  font-style: normal !important;
+}
+.big-quote em {
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 700;
+}
+.conclusion-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 0 40px;
+}
+.conclusion-cols h4 {
+  font-size: 1em !important;
+  color: var(--accent) !important;
+  margin-bottom: 8px !important;
+}
+.conclusion-cols p { font-size: 0.85em !important; color: var(--muted) !important; }
+
+/* ── Thanks ────────────────────────────────── */
+.thanks-slide { text-align: center !important; }
+.thanks-title {
+  font-size: 6em !important;
+  letter-spacing: 0.15em !important;
+  background: linear-gradient(135deg, #fff, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 20vh !important;
+}
+.thanks-sub {
+  font-size: 1.3em !important;
+  color: var(--accent) !important;
+  font-style: italic;
+}
+.thanks-foot {
+  font-size: 0.8em !important;
+  color: var(--muted) !important;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 60px !important;
+}
+
+/* ── MapLibre overrides ───────────────────── */
+.maplibregl-popup-content {
+  background: rgba(10,14,39,0.95) !important;
+  color: #fff !important;
+  border: 1px solid var(--accent) !important;
+  border-radius: 8px !important;
+  font-family: 'Inter', sans-serif !important;
+  padding: 12px 16px !important;
+}
+.maplibregl-popup-tip { border-color: transparent !important; }
+
+/* ── Scrollbar ─────────────────────────────── */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(245,166,35,0.3);
+  border-radius: 4px;
+}
+/* Dark filter on the raster map to match the theme */
+#map-3d .maplibregl-canvas {
+  filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.95);
+}
+
+/* Softer loading background so map area isn't jarringly white while loading */
+#map-3d {
+  background: #0a0e27;
+}
+
+/* Nicer attribution */
+.maplibregl-ctrl-attrib {
+  background: rgba(10, 14, 39, 0.7) !important;
+  color: #8892B0 !important;
+  font-size: 10px !important;
+}
+.maplibregl-ctrl-attrib a {
+  color: #F5A623 !important;
+}
+/* ── Globe container & canvas ────────────── */
+#globe-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;           /* ← KEY FIX: takes full parent height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+#globe-container canvas {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+.custom-footer {
+  position: fixed;
+  bottom: 12px;
+  left: 16px;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: rgba(217,226,243,0.35);
+  text-transform: uppercase;
+  z-index: 100;
+  pointer-events: none;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── CSS fallback globe (if WebGL fails) ─── */
+.css-globe {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.css-globe-sphere {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 30%, #4a6fa5 0%, #2E5496 40%, #1F3864 75%, #0a0e27 100%);
+  box-shadow:
+    inset -30px -30px 60px rgba(0,0,0,0.6),
+    inset 20px 20px 40px rgba(217,226,243,0.15),
+    0 0 80px rgba(245,166,35,0.3);
+  animation: spin-globe 20s linear infinite;
+}
+.css-globe-ring {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 2px solid rgba(245,166,35,0.4);
+  animation: pulse-ring 2s ease-out infinite;
+}
+@keyframes spin-globe {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(0.85); opacity: 0.9; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+/* ── Presenter card on title slide ───────── */
+.presenter-card {
+  margin-top: 36px;
+  padding: 16px 32px;
+  border-top: 1px solid rgba(245,166,35,0.25);
+  border-bottom: 1px solid rgba(245,166,35,0.25);
+  display: inline-block;
+  background: rgba(245,166,35,0.05);
+  border-radius: 8px;
+  animation: fadeInUp 1s ease 0.8s both;
+}
+.presenter-label {
+  font-size: 0.7em;
+  letter-spacing: 0.4em;
+  color: #8892B0;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.presenter-name {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #F5A623;
+  letter-spacing: 0.05em;
+}
+.presenter-meta {
+  font-size: 0.85em;
+  color: #D9E2F3;
+  margin-top: 4px;
+  font-family: 'JetBrains Mono', monospace;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* ── Maps grid (Slide 5) ──────────────────── */
+.maps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 0 40px;
+  height: 60vh;
+  max-height: 620px;
+}
+
+.map-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(245,166,35,0.15);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+.map-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(245,166,35,0.15);
+}
+
+.map-card .map-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75em;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.map-card img {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  /* Invert to make white-background maps match the dark theme */
+  filter: invert(1) hue-rotate(180deg) brightness(0.95) contrast(0.9);
+  transition: transform 0.4s ease;
+}
+.map-card:hover img {
+  transform: scale(1.03);
+}
+
+.map-card .map-caption {
+  font-size: 0.7em;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 12px;
+  letter-spacing: 0.05em;
+}
+/* ── Appendix divider slide ───────────────── */
+.appendix-divider {
+  text-align: center;
+}
+
+/* ── Appendix image slides — make them fill the canvas ── */
+section[data-background-image*="slides/"] {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+/* Optional: soft border effect on appendix slides */
+section[data-background-image*="slides/"] .slides-section {
+  border: 1px solid rgba(245,166,35,0.15);
+}

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Indore Urban Analysis — 2026</title>
+
+<!-- Reveal.js core -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/theme/black.css">
+
+<!-- MapLibre 3D map -->
+<link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Custom styles -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Particle background layer -->
+<canvas id="particles"></canvas>
+
+<!-- Loading screen -->
+<div id="loader">
+  <div class="loader-ring"></div>
+  <div class="loader-text">INDORE</div>
+</div>
+
+<!-- Presentation -->
+<div class="reveal">
+  <div class="slides">
+
+    <!-- ═══ 1. GLOBE INTRO ═══ -->
+    <section data-transition="zoom" data-background-color="#0a0e27" style="height:100%;">
+       <div id="globe-container"></div>
+  <div class="globe-caption">
+  <h2>22.72° N, 75.86° E</h2>
+  <p>Indore, Madhya Pradesh, India</p>
+  <p class="globe-author">— Adwit Tiwari · Roll 250004004</p>
+</div>
+</section>
+
+    <!-- ═══ 2. TITLE ═══ -->
+    <section data-transition="zoom" class="title-slide" data-background-gradient="linear-gradient(135deg,#0a0e27 0%,#1F3864 50%,#2E5496 100%)">
+      <div class="title-content">
+        <p class="title-kicker">URBAN ANALYSIS OF</p>
+        <h1 class="title-main">INDORE</h1>
+        <div class="title-divider"></div>
+        <p class="title-sub">Madhya Pradesh · India's Cleanest City</p>
+        <p class="title-desc">Assignments 1, 2 & 3 — City Profile, Demography & Waste Management</p>
+        <div class="title-meta">
+          <span>Census 2011</span>
+          <span>Swachh Survekshan 2016–2025</span>
+          <span>IMC / ISCDL</span>
+        </div>
+        <p class="title-date">Submitted: August 2026</p>
+
+        <div class="presenter-card">
+        <div class="presenter-label">Presented by</div>
+        <div class="presenter-name">Adwit Tiwari</div>
+        <div class="presenter-meta">Roll No. 250004004</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 3. CONTENTS ═══ -->
+    <section data-background-color="#0a0e27">
+      <h2 class="section-title">Contents</h2>
+      <div class="agenda">
+        <div class="agenda-item"><span class="num">01</span><div><h4>Introduction & Study Area</h4><p>Why Indore for a three-part urban study</p></div></div>
+        <div class="agenda-item"><span class="num">02</span><div><h4>Assignment 1 — City Profile</h4><p>Boundary + 5 major infrastructure projects</p></div></div>
+        <div class="agenda-item"><span class="num">03</span><div><h4>Assignment 2 — Demography</h4><p>Population, age, sex, literacy, migration, housing</p></div></div>
+        <div class="agenda-item"><span class="num">04</span><div><h4>Assignment 3 — Waste Management</h4><p>Decadal database (2014–2026) + trends</p></div></div>
+        <div class="agenda-item"><span class="num">05</span><div><h4>Discussion & Conclusion</h4><p>Findings, data gaps, planning implications</p></div></div>
+      </div>
+    </section>
+
+    <!-- ═══ 4. 3D MAP OF INDORE ═══ -->
+    <section data-transition="zoom" data-background-color="#0a0e27">
+      <h2 class="section-title">Study Area — Indore in 3D</h2>
+      <div id="map-3d"></div>
+      <div class="map-legend">
+        <span class="pill">🖱️ Drag to rotate</span>
+        <span class="pill">🖲️ Scroll to zoom</span>
+        <span class="pill">⌨️ Use arrow keys</span>
+      </div>
+      <div class="map-stats">
+        <div class="ms"><b>3,898</b><span>sq.km district area</span></div>
+        <div class="ms"><b>19.94 L</b><span>city population</span></div>
+        <div class="ms"><b>5</b><span>tehsils</span></div>
+        <div class="ms"><b>85</b><span>IMC wards</span></div>
+      </div>
+    </section>
+      <!-- ═══ 5. DISTRICT MAP — Tehsils & Blocks ═══ -->
+<section data-background-color="#0a0e27">
+  <h2 class="section-title">Administrative Divisions — Indore District</h2>
+
+  <div class="maps-grid">
+    <div class="map-card">
+      <div class="map-label">5 Tehsils</div>
+      <img src="maps/tehsils.png" alt="Indore Tehsil Map" />
+      <div class="map-caption">Depalpur · Sanwer · Indore · Mhow · Hatod</div>
+    </div>
+    <div class="map-card">
+      <div class="map-label">4 Development Blocks</div>
+      <img src="maps/blocks.png" alt="Indore Blocks Map" />
+      <div class="map-caption">Depalpur · Sanwer · Indore · Mhow</div>
+    </div>
+  </div>
+
+  <div class="map-stats" style="margin-top: 24px;">
+    <div class="ms"><b>3,898</b><span>sq.km area</span></div>
+    <div class="ms"><b>649</b><span>census villages</span></div>
+    <div class="ms"><b>335</b><span>gram panchayats</span></div>
+    <div class="ms"><b>85</b><span>IMC wards</span></div>
+  </div>
+</section>
+    <!-- ═══ 5. 3D POPULATION CHART ═══ -->
+    <section data-background-color="#0a0e27">
+      <h2 class="section-title">Population Comparison</h2>
+      <div id="pop-chart-3d" class="chart-container"></div>
+      <p class="chart-note">Hover · Click · Rotate with your mouse</p>
+    </section>
+
+    <!-- ═══ 6. ANIMATED KEY STATS ═══ -->
+    <section data-background-gradient="linear-gradient(135deg,#1F3864 0%,#0a0e27 100%)">
+      <h2 class="section-title">Indore at a Glance</h2>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number" data-count="1994397">0</div><div class="stat-label">Total Population</div></div>
+        <div class="stat-card"><div class="stat-number" data-count="35.22" data-suffix="%">0</div><div class="stat-label">Decadal Growth</div></div>
+        <div class="stat-card"><div class="stat-number" data-count="85.16" data-suffix="%">0</div><div class="stat-label">Effective Literacy</div></div>
+        <div class="stat-card"><div class="stat-number" data-count="942">0</div><div class="stat-label">Sex Ratio (F/1000 M)</div></div>
+        <div class="stat-card"><div class="stat-number" data-count="8" data-suffix="×">0</div><div class="stat-label">Swachh Rank 1 Wins</div></div>
+        <div class="stat-card"><div class="stat-number" data-count="1115" data-suffix=" TPD">0</div><div class="stat-label">Waste Generation</div></div>
+      </div>
+    </section>
+
+    <!-- ═══ 7. AGE 3D DONUT ═══ -->
+    <section data-background-color="#0a0e27">
+      <h2 class="section-title">Age Distribution</h2>
+      <div id="age-chart" class="chart-container"></div>
+    </section>
+
+    <!-- ═══ 8. LITERACY ═══ -->
+    <section data-background-color="#0a0e27">
+      <h2 class="section-title">Literacy Rates — City vs District vs State</h2>
+      <div id="lit-chart" class="chart-container"></div>
+    </section>
+
+    <!-- ═══ 9. WASTE COMPOSITION ═══ -->
+    <section data-background-color="#0a0e27">
+      <h2 class="section-title">Waste Composition & Streams</h2>
+      <div id="waste-chart" class="chart-container"></div>
+    </section>
+
+    <!-- ═══ 10. TIMELINE ═══ -->
+    <section data-background-color="#0a0e27">
+      <h2 class="section-title">The Decadal Journey (2014–2026)</h2>
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-year">2014</span><div class="tl-body"><h4>SBM Urban launched</h4><p>RSPM baseline: 142 μg/m³</p></div></div>
+        <div class="tl-item"><span class="tl-year">2016</span><div class="tl-body"><h4>100% D2D collection</h4><p>City declared bin-free</p></div></div>
+        <div class="tl-item"><span class="tl-year">2017</span><div class="tl-body"><h4>Rank 1 — First time</h4><p>RSPM falls to 76 μg/m³</p></div></div>
+        <div class="tl-item"><span class="tl-year">2020</span><div class="tl-body"><h4>Legacy waste cleared</h4><p>13 lakh MT · 100 acres reclaimed</p></div></div>
+        <div class="tl-item"><span class="tl-year">2022</span><div class="tl-body"><h4>GOBARdhan Bio-CNG plant</h4><p>550 TPD · Asia's largest</p></div></div>
+        <div class="tl-item"><span class="tl-year">2025</span><div class="tl-body"><h4>8 consecutive wins</h4><p>Super Swachh League</p></div></div>
+      </div>
+    </section>
+
+    <!-- ═══ 11. DISCUSSION ═══ -->
+    <section data-background-color="#0a0e27">
+      <h2 class="section-title">Key Findings</h2>
+      <div class="two-col">
+        <div class="col strengths">
+          <h3>✓ Strengths</h3>
+          <ul>
+            <li>85.16% effective literacy</li>
+            <li>100% door-to-door collection</li>
+            <li>Zero-landfill city</li>
+            <li>16.7× biomethanation jump</li>
+            <li>8 consecutive Swachh Rank 1</li>
+          </ul>
+        </div>
+        <div class="col concerns">
+          <h3>⚠ Concerns</h3>
+          <ul>
+            <li>Child sex ratio: 897</li>
+            <li>WPR gap: 56.32% vs 14.65%</li>
+            <li>29.60% slum population</li>
+            <li>ST share: 2.61% vs 21.09%</li>
+            <li>Waste data not updated since 2019</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 12. CONCLUSION ═══ -->
+    <section data-background-gradient="linear-gradient(135deg,#1F3864 0%,#0a0e27 100%)">
+      <h2 class="section-title">Conclusion</h2>
+      <blockquote class="big-quote">
+        Indore is a rare case where <em>rapid demographic growth</em> and <em>rapid service improvement</em> moved together — but deep spatial inequities remain.
+      </blockquote>
+      <div class="conclusion-cols">
+        <div>
+          <h4>Demographic Profile</h4>
+          <p>19.94L population · 35.22% growth · 942 sex ratio · 65.07% working-age</p>
+        </div>
+        <div>
+          <h4>Waste Profile</h4>
+          <p>1,115 TPD · 100% D2D · Zero-landfill · 8× Rank 1</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 13. THANK YOU ═══ -->
+    <section data-transition="zoom" data-background-color="#0a0e27" class="thanks-slide">
+      <h1 class="thanks-title">THANK YOU</h1>
+      <p class="thanks-sub">Questions & Discussion</p>
+      <p class="thanks-foot">Indore · India's Cleanest City · August 2026</p>
+    </section>
+
+  
+<!-- ═══ APPENDIX — Full detail slides ═══ -->
+
+<!-- Appendix divider -->
+<section data-background-gradient="linear-gradient(135deg,#1F3864 0%,#0a0e27 100%)" class="appendix-divider">
+  <div style="text-align:center;">
+    <p style="font-size:0.8em; letter-spacing:0.5em; color:#8892B0; text-transform:uppercase;">Appendix</p>
+    <h1 style="font-size:3em; margin:20px 0; color:#fff;">Full Report</h1>
+    <div style="width:80px; height:3px; background:#F5A623; margin:20px auto;"></div>
+    <p style="font-size:1.1em; color:#D9E2F3; max-width:700px; margin:24px auto; line-height:1.6;">
+      The following slides contain the complete detail behind every chart, number and finding shown in this presentation. Navigate freely for reference.
+    </p>
+  </div>
+</section>
+
+<!-- Appendix slides 1–25 -->
+<section data-background-color="#0a0e27" data-background-image="slides/Slide1.PNG"  data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide2.PNG"  data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide3.PNG"  data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide4.PNG"  data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide5.PNG"  data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide6.PNG"  data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide7.PNG"  data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide8.PNG"  data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide9.PNG"  data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide10.PNG" data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide11.PNG" data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide12.PNG" data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide13.PNG" data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide14.PNG" data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide15.PNG" data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide16.PNG" data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide17.PNG" data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide18.PNG" data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide19.PNG" data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide20.PNG" data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide21.PNG" data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide22.PNG" data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide23.PNG" data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide24.PNG" data-background-size="contain"></section>
+<section data-background-color="#0a0e27" data-background-image="slides/Slide25.PNG" data-background-size="contain"></section>
+</div>
+</div>
+<!-- ══════════════════ LIBRARIES ══════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<!-- Custom logic -->
+<script src="main.js"></script>
+
+</body>
+</html>
